@@ -78,3 +78,7 @@ Control-plane nodes are labeled with `node-role.kubernetes.io/master`, being tai
 In order to make it possible to run multiple private Kubernetes nodes on the same private DC/OS agent, some changes to networking were required.
 The `etcd` members, control-plane nodes and private Kubernetes nodes leverage [DC/OS virtual networking](/1.12/networking/SDN/) and each have their own IP address in the DC/OS cluster.
 Kubernetes cluster pod networking and policy are now powered by [Calico](https://github.com/projectcalico/calico/).
+
+# Community
+Get help and connect with other users on the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/kubernetes) or on DC/OS community [Slack](http://chat.dcos.io/) in the #kubernetes channel.
+

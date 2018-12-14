@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Getting Started with Kubernetes on DC/OS Enterprise
-title: Getting Started with Kubernetes on DC/OS Enterprise
+navigationTitle: Tutorial: Kubernetes on DC/OS Enterprise
+title: Tutorial: Setting Up Kubernetes on DC/OS Enterprise
 menuWeight: 10
 excerpt: Learn how to get up and running using Kubernetes on DC/OS Enterprise
 ---
