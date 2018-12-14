@@ -15,4 +15,4 @@ all from outside the DC/OS cluster's perimeter using [DC/OS Edge-LB](/services/e
 
 # Next: Configure Edge-LB to Connect to Kubernetes
 
-As the next step of [the Getting Started Guide](../getting-started/), you will [configure Edge-LB to connect to our Kubernetes clusters](../getting-started/connecting-to-kubernetes/config-edgelb/). This will then allow you to quickly test your cluster connections and view the Kubernetes dashboard via web proxy.
+As the next step of [the Getting Started Guide](/services/kubernetes/test/getting-started/), you will [configure Edge-LB to connect to our Kubernetes clusters](/services/kubernetes/test/getting-started/connecting-to-kubernetes/config-edgelb/). This will then allow you to quickly test your cluster connections and view the Kubernetes dashboard via web proxy.
