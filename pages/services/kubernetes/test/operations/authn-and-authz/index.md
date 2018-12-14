@@ -58,7 +58,7 @@ We also **highly recommend** that the operator create new service account(s) for
 
 <p class="message--note"><strong>NOTE: </strong> Fine-grained authorization control with service accounts will only work when RBAC authorization mode is selected.</p>
 
-Once [kubectl is setup for the bootstrap user](/services/kubernetes/test/connecting-clients) you may wish to grant other users access to specific resources running in the cluster.
+Once [kubectl is setup for the bootstrap user](/services/kubernetes/__VERSION__/connecting-clients) you may wish to grant other users access to specific resources running in the cluster.
 Below are examples on how to create service accounts and grant those accounts different permissions in the cluster.
 
 ### Pre-defined roles
@@ -111,7 +111,7 @@ kubectl create rolebinding my-pod-sa-view \
   --namespace=my-namespace
 ```
 
-To retrieve the generated token for `my-pod-sa` service account that can later be used to configure `kubectl` or access the [Kubernetes Dashboard](/services/kubernetes/test/kubernetes-dashboard), get the secret name and then that secret's token:
+To retrieve the generated token for `my-pod-sa` service account that can later be used to configure `kubectl` or access the [Kubernetes Dashboard](/services/kubernetes/__VERSION__/kubernetes-dashboard), get the secret name and then that secret's token:
 
 ```shell
 export SECRET="$(kubectl get sa my-pod-sa -o 'jsonpath={.secrets[0].name}' -n my-namespace)"

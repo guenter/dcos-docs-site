@@ -7,7 +7,7 @@ excerpt: Install the Mesosphere Kubernetes Engine on your DC/OS Cluster
 enterprise: true
 ---
 
-Now that your DC/OS Enterprise cluster is [ready to install Kubernetes on DC/OS](/services/kubernetes/test/getting-started/provision-install/setting-up/), you will install the Mesosphere Kubernetes Engine (MKE) on top of DC/OS.
+Now that your DC/OS Enterprise cluster is [ready to install Kubernetes on DC/OS](/services/kubernetes/__VERSION__/getting-started/provision-install/setting-up/), you will install the Mesosphere Kubernetes Engine (MKE) on top of DC/OS.
 
 MKE is the engine DC/OS uses to generate DC/OS Kubernetes clusters. Accordingly, it is necessary to install the Mesosphere Kubernetes Engine (MKE) - installed via the `kubernetes` package - before attempting to install DC/OS Kubernetes clusters on DC/OS.
 
@@ -144,8 +144,8 @@ The DC/OS Kubernetes CLI is provided as a way to interact with the cluster manag
 dcos package install kubernetes --cli --yes
 ```
 
-For more information on the CLI management commands for DC/OS Kubernetes see [the CLI reference section of this documentation](/services/kubernetes/test/cli/).
+For more information on the CLI management commands for DC/OS Kubernetes see [the CLI reference section of this documentation](/services/kubernetes/__VERSION__/cli/).
 
 # Next Step: Creating Kubernetes Clusters on DC/OS Enterprise
 
-Now that MKE is installed on your DC/OS cluster, you can move on to [creating Kubernetes clusters on top of DC/OS Enterprise](/services/kubernetes/test/getting-started/provision-install/creating-clusters/).
+Now that MKE is installed on your DC/OS cluster, you can move on to [creating Kubernetes clusters on top of DC/OS Enterprise](/services/kubernetes/__VERSION__/getting-started/provision-install/creating-clusters/).

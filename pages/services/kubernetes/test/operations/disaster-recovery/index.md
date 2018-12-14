@@ -117,7 +117,7 @@ Backup successfully restored!
     ```shell
     $ kubectl get pods --all-namespaces
     NAMESPACE     NAME                                READY     STATUS    RESTARTS   AGE
-    (docs/package/__VERSION__.)
+    (...)
     default       nginx-6c54bd5869-pt62l   1/1       Running   0          39s
     default       nginx-6c54bd5869-xt82y   1/1       Running   0          39s
     ```

@@ -30,4 +30,3 @@ In this guided tutorial, you will learn many of the basics of using Kubernetes o
 # First Section: Installing and Using Kubernetes on DC/OS
 
 In the [first part of the tutorial](/services/kubernetes/test/getting-started/provision-install/), you will set up your cluster for a successful installation of DC/OS Kubernetes, install the Mesosphere Kubernetes Engine (MKE), and finally create a pair of high density Kubernetes clusters using the DC/OS Kubernetes CLI.
-

@@ -186,4 +186,4 @@ To set up Edge-LB for DC/OS Kubernetes you will need to:
 
 # Next Step: Test Kubernetes connections and view the Kubernetes dashboard
 
-Now you have configured Edge-LB to connect to your Kubernetes clusters. In the next and last major step, you will [test connections and view the Kubernetes Dashboard](/services/kubernetes/test/getting-started/connecting-to-kubernetes/test-connect/) via a web proxy on your browser.
+Now you have configured Edge-LB to connect to your Kubernetes clusters. In the next and last major step, you will [test connections and view the Kubernetes Dashboard](/services/kubernetes/__VERSION__/getting-started/connecting-to-kubernetes/test-connect/) via a web proxy on your browser.

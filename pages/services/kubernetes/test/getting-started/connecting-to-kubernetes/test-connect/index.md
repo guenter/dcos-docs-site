@@ -175,6 +175,6 @@ In one simple but satisfying validation of our connection into our Kubernetes cl
 
 # Mission Complete!
 
-Well done! You have successfully completed the [Getting Started Guide for Kubernetes](/services/kubernetes/test/getting-started/). You have set up your DC/OS Enterprise cluster to be able to run Kubernetes as a service on DC/OS.
+Well done! You have successfully completed the [Getting Started Guide for Kubernetes](/services/kubernetes/__VERSION__/getting-started/). You have set up your DC/OS Enterprise cluster to be able to run Kubernetes as a service on DC/OS.
 
-For more information regarding operating Kubernetes as a service on DC/OS, check out the [Operating](/services/kubernetes/test/operating/) section.
+For more information regarding operating Kubernetes as a service on DC/OS, check out the [Operating](/services/kubernetes/__VERSION__/operating/) section.

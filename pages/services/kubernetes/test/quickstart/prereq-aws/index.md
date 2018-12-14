@@ -10,13 +10,13 @@ excerpt: A quick start guide for Kubernetes using the Mesosphere Universal Insta
 
 This guide will take you through a (mostly) automated process of setting up and installing DC/OS 1.12, then installing the Mesosphere Kubernetes Engine and Kubernetes clusters onto the DC/OS cluster. All of the heavy lifting has been done for you through the default configuration in order to provide a basic DC/OS installation capable of hosting Kubernetes clusters. This is an open source installation meant to provide a quick way to evaluate Kubernetes on DC/OS.
 
-![k8s UI](docs/assets/ui-install.gif)
+![k8s UI](/services/kubernetes/__VERSION__/img/ui-install.gif)
 
-**NOTE:** The latest `dcos-kubernetes-quickstart` doesn't support any Kubernetes framework version before `2.0.0-1.12.1`. The reason is that creating Kubernetes clusters now requires the installation of the [Mesosphere Kubernetes Engine](/services/kubernetes/latest/overview/#cluster-manager).
+**NOTE:** The latest `dcos-kubernetes-quickstart` doesn't support any Kubernetes framework version before `2.0.0-1.12.1`. The reason is that creating Kubernetes clusters now requires the installation of the [Mesosphere Kubernetes Engine](/services/kubernetes/__VERSION__/overview/#cluster-manager).
 
 ## Known limitations
 
-Before proceeding, please check the [current package limitations](/services/kubernetes/latest/limitations/).
+Before proceeding, please check the [current package limitations](/services/kubernetes/__VERSION__/limitations/).
 
 ## Pre-requisites
 
@@ -115,7 +115,7 @@ git clone git@github.com:mesosphere/dcos-kubernetes-quickstart.git && cd dcos-ku
 
 **NOTE:** This `quickstart` will provision a Kubernetes cluster without `RBAC` support.
 
-To deploy a cluster with enabled [RBAC](https://docs.mesosphere.com/services/kubernetes/2.0.1-1.12.2/operations/authn-and-authz/#rbac) update `.deploy/options.json` to add the authorization mode:
+To deploy a cluster with enabled [RBAC](/services/kubernetes/__VERSION__/operations/authn-and-authz/#rbac) update `.deploy/options.json` to add the authorization mode:
 
 ```json
 {
@@ -130,7 +130,7 @@ To deploy a cluster with enabled [RBAC](https://docs.mesosphere.com/services/kub
 
 **NOTE:** The authorization mode for a cluster must be chosen when installing the package. Changing the authorization mode after installing the package is not supported.
 
-If you want to give users access to the Kubernetes API check [documentation](https://docs.mesosphere.com/services/kubernetes/2.0.1-1.12.2/operations/authn-and-authz/#giving-users-access-to-the-kubernetes-api).
+If you want to give users access to the Kubernetes API check [documentation](/services/kubernetes/__VERSION__/operations/authn-and-authz/#giving-users-access-to-the-kubernetes-api).
 
 #### Option for High Availability Cluster
 

@@ -9,7 +9,7 @@ excerpt: Customizing your installation of Kubernetes on DC/OS
 The default DC/OS Kubernetes package installation provides reasonable defaults.
 However, there are many available options for advanced users to further modify the installation. This section describes those options.
 
-This section continues on from the instructions given in the [Basic Installation](/services/kubernetes/2.1.0-1.12.3/getting-started/install-basic/) section.
+This section continues on from the instructions given in the [Basic Installation](/services/kubernetes/__VERSION__/getting-started/install-basic/) section.
 
 # Advanced Installation
 
@@ -46,7 +46,7 @@ Create an `options.json` file, or edit an existing one:
   }
   ```
 
-See the [Cluster Sizing](/services/kubernetes/2.1.0-1.12.3/getting-started/cluster-sizing/) page for a more detailed explanation.
+See the [Cluster Sizing](/services/kubernetes/__VERSION__/getting-started/cluster-sizing/) page for a more detailed explanation.
 
 ## Change the number of Kubernetes nodes
 
@@ -89,7 +89,7 @@ Create an `options.json` file, or edit an existing one and install:
 
 By default, region placement is set to the `local region` of the DC/OS installation.
 If DC/OS spans multiple regions then it is possible to launch Kubernetes in one and only one region of choice.
-It is possible that the region may not have the resources required, make sure to read and understand [Cluster Sizing](/services/kubernetes/test/../cluster-sizing/index) before attempting a deployment.
+It is possible that the region may not have the resources required, make sure to read and understand [Cluster Sizing](/services/kubernetes/__VERSION__/../cluster-sizing/index) before attempting a deployment.
 
 There are two ways to deploy a Kubernetes cluster to a region:
 
@@ -111,7 +111,7 @@ Considerations:
 - Once deployed, region changes are not supported and can leave the scheduler in a crash loop.
 
 
-**NOTE:** Multi-Region deployment is not supported, see [Limitations](/services/kubernetes/test/../limitations/index).
+**NOTE:** Multi-Region deployment is not supported, see [Limitations](/services/kubernetes/__VERSION__/../limitations/index).
 
 ## Placement Constraints
 
@@ -173,7 +173,7 @@ In the past, this package supported TLS only when running on DC/OS Enterprise wh
 
 DC/OS does not provide the functionality describe above. The following diagram describes how this was achieved on DC/OS.
 
-![alt text](/services/kubernetes/2.1.0-1.12.3/img/tls.png "TLS design")
+![alt text](/services/kubernetes/__VERSION__/img/tls.png "TLS design")
 
 Figure 1. TLS Design
 
@@ -249,7 +249,7 @@ Warning Unhealthy 3m (x10009 over 8d) kubelet, kube-node-5-kubelet.kubernetes-cl
 Normal Pulled 3m (x2645 over 8d) kubelet, kube-node-5-kubelet.kubernetes-cluster.mesos Container image "gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.5" already present on machine
 Normal Created 3m (x2646 over 8d) kubelet, kube-node-5-kubelet.kubernetes-cluster.mesos Created container
 Normal Killing 3m (x2502 over 8d) kubelet, kube-node-5-kubelet.kubernetes-cluster.mesos Killing container with id docker://dnsmasq:pod "kube-dns-2102953216-qwvtn_kube-system(fd285861-ce3a-11e7-9ca9-005056945d21)" container "dnsmasq" is unhealthy, it will be killed and re-created.
-(docs/package/__VERSION__.)
+(...)
 ```
 
 Looking closely, the issue here is that the `kubelet` is not able to HTTP GET the `kube-dns` endpoints used in liveness and readiness probes causing containers to restart.  

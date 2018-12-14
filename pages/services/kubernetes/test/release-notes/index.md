@@ -15,7 +15,7 @@ excerpt: Release notes for DC/OS Kubernetes version __VERSION__
 * DC/OS Kubernetes `__VERSION__` requires DC/OS 1.12.
 * DC/OS Kubernetes `__VERSION__` introduces breaking changes to the way the package works and is deployed.
   Therefore, it is not possible to upgrade an existing installation of DC/OS Kubernetes to `__VERSION__`.
-* Before installing `kubernetes-cluster` package `__VERSION__`, the `kubernetes` package must be [installed and running](/services/kubernetes/test/install-and-customize).
+* Before installing `kubernetes-cluster` package `__VERSION__`, the `kubernetes` package must be [installed and running](/services/kubernetes/__VERSION__/install-and-customize).
 * It is no longer possible to install DC/OS Kubernetes on DC/OS Enterprise without specifying a [service account](/1.12/security/ent/service-auth/) and a service account secret with adequate [permissions](/1.12/security/ent/perms-reference/).
 * Package options have been renamed and re-organized.
   * `node_placement` renamed to `private_node_placement`
@@ -32,7 +32,7 @@ excerpt: Release notes for DC/OS Kubernetes version __VERSION__
 * Move the validation of the service configuration to the Mesosphere Kubernetes Engine.
 * Enable `--aws-session-token` for `cluster backup` and `cluster restore` commands. The AWS session token can now be used as part of the AWS credentials.
 * Support relative paths in `--path-to-custom-ca` for `cluster kubeconfig` command, e.g. `--path-to-custom-ca=./my-custom-ca.pem`.
-* Documentation section on how to [upgrade](/services/kubernetes/test/operations/upgrade/#Mesosphere-Kubernetes-Engine) the `kubernetes` package.
+* Documentation section on how to [upgrade](/services/kubernetes/__VERSION__/operations/upgrade/#Mesosphere-Kubernetes-Engine) the `kubernetes` package.
 * Enable the selection of the desired region where to deploy the Kubernetes cluster.
 
 ## Bug Fixes
@@ -45,11 +45,11 @@ excerpt: Release notes for DC/OS Kubernetes version __VERSION__
 
 ## Documentation
 
-* Add an [Overview](/services/kubernetes/test/overview) page explaining in detail what changed since the 1.x series of releases.
-* Add a [CLI](/services/kubernetes/test/cli) page detailing the new Mesosphere Kubernetes Engine CLI.
-* Merged `Advanced Installation` page merging its content into [Install and Customize](/services/kubernetes/test/install-and-customize).
-* Add a [Private Docker Registry](/services/kubernetes/test/operations/private-docker-registry) page explaining how to configure it.
+* Add an [Overview](/services/kubernetes/__VERSION__/overview) page explaining in detail what changed since the 1.x series of releases.
+* Add a [CLI](/services/kubernetes/__VERSION__/cli) page detailing the new Mesosphere Kubernetes Engine CLI.
+* Merged `Advanced Installation` page merging its content into [Install and Customize](/services/kubernetes/__VERSION__/install-and-customize).
+* Add a [Private Docker Registry](/services/kubernetes/__VERSION__/operations/private-docker-registry) page explaining how to configure it.
 
 ## Known Issues
 
-Known issues and limitations are listed in the [Limitations](/services/kubernetes/test/limitations) page.
+Known issues and limitations are listed in the [Limitations](/services/kubernetes/__VERSION__/limitations) page.
