@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start for Azure
-title: Quick Start for Kubernetes on DC/OS
+title: Quick Start for Azure
 menuWeight: 7
 excerpt: A quick start guide for Kubernetes using the Mesosphere Universal Installer.
 ---

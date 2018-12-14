@@ -4,11 +4,10 @@ navigationTitle: Installing and Using Kubernetes on DC/OS
 title: Installing and Using Kubernetes on DC/OS
 menuWeight: 5
 excerpt: Learn to install Kubernetes on DC/OS and create multiple clusters
+enterprise: true
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
-
-# Installing and using Kubernetes on DC/OS
 
 In this first part of the tutorial, you will learn the basics of how to:
 
@@ -18,6 +17,6 @@ In this first part of the tutorial, you will learn the basics of how to:
 
 This will provide you with a thorough, but basic, Enterprise installation of DC/OS Kubernetes. For more detailed installation instructions, or to find out how to further customize your installation of DC/OS Kubernetes, see the [Customizing](/services/kubernetes/test/operations/customizing-install/) section.
 
-# Next Step: Setting up your DC/OS Enterprise cluster for Kubernetes
+# First Step: Setting up your DC/OS Enterprise cluster for Kubernetes
 
 Next, you will [set up your DC/OS Enterprise cluster](/services/kubernetes/test/getting-started/provision-install/setting-up/). This will help ensure you experience a successful demonstration of operating Kubernetes on DC/OS Enterprise.

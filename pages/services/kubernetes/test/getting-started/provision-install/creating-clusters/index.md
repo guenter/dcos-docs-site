@@ -3,10 +3,9 @@ layout: layout.pug
 navigationTitle: Creating Kubernetes clusters using MKE
 title: Creating Kubernetes clusters on DC/OS using MKE
 menuWeight: 10
-excerpt: Learn to create Kubernetes clusters on DC/OS using MKE and the DC/OS Kubernetes CLI
+excerpt: Learn to create Kubernetes clusters on DC/OS using MKE and the DC/OS Kubernetes CLI.
+enterprise: true
 ---
-
-# Creating Kubernetes clusters on DC/OS using the DC/OS Kubernetes CLI
 
 At this point, you should have [installed MKE](/services/kubernetes/test/getting-started/provision-install/installing-mke/) - using the DC/OS `kubernetes` package on your DC/OS Enterprise cluster and installed the [latest DC/OS Kubernetes CLI](/services/kubernetes/test/cli/).
 

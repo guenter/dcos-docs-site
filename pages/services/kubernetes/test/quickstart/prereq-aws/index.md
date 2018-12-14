@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start for AWS
-title: Quick Start for Kubernetes on DC/OS
+title: Quick Start for AWS
 menuWeight: 1
 excerpt: A quick start guide for Kubernetes using the Mesosphere Universal Installer.
 ---

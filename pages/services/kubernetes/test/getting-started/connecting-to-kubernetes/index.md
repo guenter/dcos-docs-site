@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle: Connecting to Kubernetes
 title: Connecting to Kubernetes clusters
 menuWeight: 10
-excerpt: Learn to connect to private Kubernetes clusters and the Kubernetes dashboard via web proxy
+excerpt: Learn to view your clusters on the dashboard using a load balancer.
+enterprise: true
 ---
 
 Now that we have set up and configured our cluster with a pair of Kubernetes clusters on our DC/OS Enterprise cluster, you will learn to configure your DC/OS Enterprise cluster's network to:

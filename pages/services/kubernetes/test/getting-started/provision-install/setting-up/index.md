@@ -4,11 +4,10 @@ navigationTitle: Setting Up
 title: Setting up the DC/OS cluster
 menuWeight: 1
 excerpt: Learn to setup the DC/OS cluster to demonstrate Kubernetes on DC/OS Enterprise
+enterprise: true
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
-
-# Setting up your DC/OS Enterprise cluster
 
 ## Prerequisite: DC/OS Enterprise cluster [enterprise type="inline" size="small" /]
 

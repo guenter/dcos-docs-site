@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle: Testing Connections
 title: Testing Connections and Viewing the Kubernetes Dashboard
 menuWeight: 10
-excerpt: Learn to test your connection to private Kubernetes clusters and view the Kubernetes dashboard via public web proxy.
+excerpt: Learn to test your connection to private Kubernetes clusters and view the Kubernetes dashboard.
+enterprise: true
 ---
 
 In this section, we will test our connections to our Kubernetes clusters one at a time and then lastly connect to the Kubernetes dashboard and view our Kubernetes clusters' information.

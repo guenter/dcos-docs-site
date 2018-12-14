@@ -4,11 +4,8 @@ navigationTitle: Installing MKE
 title: Installing the Mesosphere Kubernetes Engine
 menuWeight: 5
 excerpt: Install the Mesosphere Kubernetes Engine on your DC/OS Cluster
+enterprise: true
 ---
-
-<!-- *** note. -->
-
-# Installing Mesosphere Kubernetes Engine (MKE) on Enterprise DC/OS
 
 Now that your DC/OS Enterprise cluster is [ready to install Kubernetes on DC/OS](/services/kubernetes/test/getting-started/provision-install/setting-up/), you will install the Mesosphere Kubernetes Engine (MKE) on top of DC/OS.
 
