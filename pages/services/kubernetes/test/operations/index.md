@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Operations
 title: Operations
-menuWeight: 60
+menuWeight: 50
 excerpt: Managing your DC/OS Kubernetes cluster
 ---
 

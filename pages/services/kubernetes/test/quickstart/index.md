@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start
-title: Quick Start
-menuWeight: 7
+title: Quick Start Guide for DC/OS and Kubernetes
+menuWeight: 30
 excerpt: Scripted quick start guides to install DC/OS, install Kubernetes, and access clusters on the dashboard.
 ---
 

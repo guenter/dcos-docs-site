@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Overview
 title: Overview
-menuWeight: 5
+menuWeight: 20
 excerpt: What's new in DC/OS Kubernetes __VERSION__
 ---
 
