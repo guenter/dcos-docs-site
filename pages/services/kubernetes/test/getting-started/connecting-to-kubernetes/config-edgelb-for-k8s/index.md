@@ -17,12 +17,14 @@ To set up Edge-LB for DC/OS Kubernetes you will need to:
 
 ## Set up and Install Edge-LB with service account
 
-1. <strong>First, add the Edge-LB repositories:</strong>
+1. <strong>First, add the Edge-LB repositories, replacing the download links with the [latest available binaries](https://support.mesosphere.com/s/downloads), this example links to DC/OS Edge-LB 1.2.3:</strong>
 
     ```bash
-    dcos package repo add --index=0 edgelb https://<insert download link>/stub-universe-edgelb.json
-    dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-universe-edgelb-pool.json
+    dcos package repo add --index=0 edgelb https://downloads.mesosphere.com/edgelb/v1.2.3/assets/stub-universe-edgelb.json
+    dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.2.3/assets/stub-universe-edgelb-pool.json
     ```
+
+    <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
 
 1. <strong>Next, create an Edge-LB service account:</strong>
 
@@ -36,7 +38,7 @@ To set up Edge-LB for DC/OS Kubernetes you will need to:
 
 1. <strong>Then, create an options JSON file to install Edge-LB with its service account.</strong>
 
-    Create here we create `edge-lb-options.json` and add the following configuration snippet:
+    Here we create `edge-lb-options.json` and add the following configuration snippet:
 
     ```json
     {
@@ -56,12 +58,6 @@ To set up Edge-LB for DC/OS Kubernetes you will need to:
 
     ```bash
     dcos package install --options=edge-lb-options.json edgelb --yes
-    ```
-
-    Then, enter:
-
-     ```bash
-    dcos package install --options=edge-lb-options.json edgelb --cli --yes
     ```
 
 ## Create and launch an Edge-LB configured pool deployment for your Kubernetes services

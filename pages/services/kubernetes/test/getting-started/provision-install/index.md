@@ -15,7 +15,7 @@ In this first part of the tutorial, you will learn the basics of how to:
   - install the Mesosphere Kubernetes Engine (MKE) on your DC/OS cluster
   - create two Kubernetes clusters on top of your DC/OS cluster using the DC/OS Kubernetes CLI
 
-This will provide you with a thorough, but basic, Enterprise installation of DC/OS Kubernetes. For more detailed installation instructions, or to find out how to further customize your installation of DC/OS Kubernetes, see the [Customizing](/services/kubernetes/test/operations/customizing-install/) section.
+This will provide you with a thorough, but basic, Enterprise installation of DC/OS Kubernetes. For more detailed installation instructions, or to find out how to further customize your installation of DC/OS Kubernetes, see the [Customizing](/services/kubernetes/__VERSION__/operations/customizing-install/) section.
 
 # First Step: Setting up your DC/OS Enterprise cluster for Kubernetes
 

@@ -81,4 +81,3 @@ Kubernetes cluster pod networking and policy are now powered by [Calico](https:/
 
 # Community
 Get help and connect with other users on the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/kubernetes) or on DC/OS community [Slack](http://chat.dcos.io/) in the #kubernetes channel.
-

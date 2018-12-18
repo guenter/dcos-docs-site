@@ -31,7 +31,7 @@ Before attempting to connect `kubectl` to the MKE clusters, you will want to che
         --apiserver-url=https://${EDGELB_PUBLIC_AGENT_IP}:6443
     ```
 
-    which will configure DC/OS Kubernetes to connect to `kubernetes-cluster1` from the Kubernetes CLI, `kubectl`.
+    which will configure DC/OS Kubernetes to connect to `kubernetes-cluster1` from the Kubernetes CLI, `kubectl`. The `EDGELB_PUBLIC_AGENT_IP` should still be cached in your terminal environment from the previous section, if not, make sure to insert the proper value.
 
 1. <strong>Next, get your Kubernetes nodes' info for </strong>`kubernetes-cluster1`<strong>.</strong>
 
@@ -85,9 +85,9 @@ Before attempting to connect `kubectl` to the MKE clusters, you will want to che
 
 Now you will do the same to test `kubernetes`
 
-1. <strong>Switch contexts for inbound</strong> `kubectl` <strong>commands to your second Kubernetes cluster </strong>`kubernetes-cluster2`<strong>.</strong>
+1. <strong>Connect the second Kubernetes cluster to the `kubeconfig` in order to send</strong> `kubectl` <strong>commands to it.</strong>
 
-    In your CLI, paste in the following and press run the command:
+    In your CLI, paste in the following, again, your `EDGELB_PUBLIC_AGENT_IP` should still be cached in your terminal environment from the previous section:
 
     ```bash
     dcos kubernetes cluster kubeconfig \
@@ -99,9 +99,19 @@ Now you will do the same to test `kubernetes`
 
     Your `kubectl` commands should now connect to `kubernetes-cluster2`.
 
-    Any time you would like to switch to communicating with a different cluster using the DC/OS CLI, you will want to use a command with flags configured like this one, replacing `kubernetes-cluster2` with the name of the cluster service.
+    Once the 2 contexts are configured, they will be saved in ~/.kube/config. To switch, you can either set the context generally:
 
-1. <strong>Then, like before for </strong>`kubernetes-cluster1`<strong>, get the nodes' information for </strong>`kubernetes-cluster2`<strong>.</strong>
+    ```bash
+    kubectl config use-context kubernetes-cluster2
+    ```
+
+    Or use the flag `--context kubernetes-cluster1` in commands like:
+    
+    ```bash
+    kubectl get nodes --context kubernetes-cluster1
+    ```
+
+1. <strong>As before for </strong>`kubernetes-cluster1`<strong>, get the nodes' information for </strong>`kubernetes-cluster2`<strong>.</strong>
 
     In your CLI, enter:
 
@@ -114,8 +124,8 @@ Now you will do the same to test `kubernetes`
     ```bash
     $ kubectl get nodes
     NAME                                                      STATUS   ROLES    AGE    VERSION
-    kube-control-plane-0-instance.kubernetes-cluster2.mesos   Ready    master   145m   v1.12.1
-    kube-node-0-kubelet.kubernetes-cluster2.mesos             Ready    <none>   142m   v1.12.1
+    kube-control-plane-0-instance.kubernetes-cluster2.mesos   Ready    master   145m   v1.12.3
+    kube-node-0-kubelet.kubernetes-cluster2.mesos             Ready    <none>   142m   v1.12.3
     ```
 
 1. <strong>Next, create a NGINX deployment on</strong> `kubernetes-cluster1`<strong>:</strong>
@@ -173,7 +183,7 @@ In one simple but satisfying validation of our connection into our Kubernetes cl
 
     <!-- better validation here of this step:Screenshot ^^ -->
 
-# Mission Complete!
+## Mission Complete!
 
 Well done! You have successfully completed the [Getting Started Guide for Kubernetes](/services/kubernetes/__VERSION__/getting-started/). You have set up your DC/OS Enterprise cluster to be able to run Kubernetes as a service on DC/OS.
 

@@ -32,15 +32,13 @@ As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Ent
     In this case, enter:
 
     ```bash
-    dcos security org service-accounts create -p kube1-pub.pem -d 'Service account for kubernetes-cluster1'
+    dcos security org service-accounts create -p kube1-pub.pem -d 'Service account for kubernetes-cluster1' kubernetes-cluster1
     ```
-
-    Again, successfully creating the service account will not create any CLI output.
 
 1. <strong>Then, associate a secret with the cluster's service account using the newly generated private key.</strong>
 
     ```bash
-    dcos security secrets create-sa-secret kube1-pub.pem kubernetes-cluster1 kubernetes-cluster1/sa
+    dcos security secrets create-sa-secret kube1-priv.pem kubernetes-cluster1 kubernetes-cluster1/sa
     ```
 
     Again, it is expected behavior in these steps for no output from the CLI to happen unless an error has occurred.
@@ -161,7 +159,7 @@ It is a good practice to use of a different keypair to be used with the service 
     ```bash
     dcos security org service-accounts keypair kube2-priv.pem kube2-pub.pem
     dcos security org service-accounts create -p kube2-pub.pem -d 'Kubernetes service account' kubernetes-cluster2
-    dcos security secrets create-sa-secret private-key.pem kubernetes-cluster2 kubernetes-cluster2/sa
+    dcos security secrets create-sa-secret kube2-priv.pem kubernetes-cluster2 kubernetes-cluster2/sa
     ```
 
 1. <strong>Grant the</strong> `kubernetes-cluster2` <strong>service account the required permissions for Kubernetes clusters</strong>:
@@ -241,7 +239,7 @@ It is a good practice to use of a different keypair to be used with the service 
     Using the DC/OS Kubernetes CLI, enter the following command:
 
     ```bash
-    dcos kubernetes cluster create --options=kubernetes2-options2.json --yes
+    dcos kubernetes cluster create --options=kubernetes2-options.json --yes
     ```
 
     and your Kubernetes cluster service should start spinning up.

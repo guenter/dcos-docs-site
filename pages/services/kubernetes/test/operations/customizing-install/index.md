@@ -89,7 +89,7 @@ Create an `options.json` file, or edit an existing one and install:
 
 By default, region placement is set to the `local region` of the DC/OS installation.
 If DC/OS spans multiple regions then it is possible to launch Kubernetes in one and only one region of choice.
-It is possible that the region may not have the resources required, make sure to read and understand [Cluster Sizing](/services/kubernetes/__VERSION__/../cluster-sizing/index) before attempting a deployment.
+It is possible that the region may not have the resources required, make sure to read and understand [Cluster Sizing](/services/kubernetes/__VERSION__/cluster-sizing/index) before attempting a deployment.
 
 There are two ways to deploy a Kubernetes cluster to a region:
 
@@ -111,7 +111,7 @@ Considerations:
 - Once deployed, region changes are not supported and can leave the scheduler in a crash loop.
 
 
-**NOTE:** Multi-Region deployment is not supported, see [Limitations](/services/kubernetes/__VERSION__/../limitations/index).
+**NOTE:** Multi-Region deployment is not supported, see [Limitations](/services/kubernetes/__VERSION__/limitations/index).
 
 ## Placement Constraints
 
