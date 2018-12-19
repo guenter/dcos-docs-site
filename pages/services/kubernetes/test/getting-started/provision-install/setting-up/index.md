@@ -61,6 +61,6 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
 
 # Next Step: Installing the Mesosphere Kubernetes Engine
 
-Now that you have your DC/OS cluster all setup, you are ready to [install the Mesosphere Kubernetes Engine](/services/kubernetes/__VERSION__/getting-started/provision-install/installing-mke/).
+Now that you have your DC/OS cluster all set up, you are ready to [install the Mesosphere Kubernetes Engine](/services/kubernetes/__VERSION__/getting-started/provision-install/installing-mke/).
 
 <!-- *** COULD USE some links to community slack and whatnot here to drive traffic that way for feedback. -->
