@@ -136,14 +136,6 @@ Now that permissions have been granted to the service account, we need to make s
     The Mesosphere Kubernetes Engine service is being installed.
     ```
 
-## Install the latest DC/OS Kubernetes CLI
-
-The DC/OS Kubernetes CLI is provided as a way to interact with the cluster manager and allow complete control over the life-cycle of Kubernetes clusters running on DC/OS created by MKE.
-
-```bash
-dcos package install kubernetes --cli --yes
-```
-
 For more information on the CLI management commands for DC/OS Kubernetes see [the CLI reference section of this documentation](/services/kubernetes/__VERSION__/cli/).
 
 # Next Step: Creating Kubernetes Clusters on DC/OS Enterprise

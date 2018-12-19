@@ -109,6 +109,7 @@ Now that permissions have been granted to the service account, we need to make s
     ```json
     {
         "service": {
+            "name": "kubernetes-cluster1",
             "service_account": "kubernetes-cluster1",
             "service_account_secret": "kubernetes-cluster1/sa"
         }

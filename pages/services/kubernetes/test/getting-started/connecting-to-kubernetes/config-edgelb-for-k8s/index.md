@@ -24,8 +24,6 @@ To set up Edge-LB for DC/OS Kubernetes you will need to:
     dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.2.3/assets/stub-universe-edgelb-pool.json
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
-
 1. <strong>Next, create an Edge-LB service account:</strong>
 
     ```bash

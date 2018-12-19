@@ -70,6 +70,14 @@ source ~/.aws/my_credentials
 ```
 Later, you will be asked to add the SSH public key to the Terraform cluster profile.
 
+## Download the quickstart repository
+
+Now that you are all set up with your cloud, clone this repo:
+
+```bash
+git clone git@github.com:mesosphere/dcos-kubernetes-quickstart.git && cd dcos-kubernetes-quickstart
+```
+
 ## Prepare infrastructure configuration
 
 Now, to start setting up your installation, start by generating the default infrastructure configuration:
@@ -101,15 +109,7 @@ admin_cidr = "0.0.0.0/0"
 
 For more advanced scenarios, please check the [terraform-dcos documentation for AWS](https://github.com/dcos/terraform-dcos/tree/master/aws).
 
-## Download the quickstart repository
-
-Now that you are all set up with your cloud, clone this repo:
-
-```bash
-git clone git@github.com:mesosphere/dcos-kubernetes-quickstart.git && cd dcos-kubernetes-quickstart
-```
-
-### Configuring Kubernetes
+## Configuring Kubernetes
 
 #### Option for Role Based Access Control
 
@@ -150,7 +150,7 @@ To deploy a **highly-available** cluster with three (3) private Kubernetes nodes
 }
 ```
 
-### Download command-line tools
+## Download command-line tools
 
 If you don't have them as binaries already, please download the DC/OS CLI client, `dcos` and the DC/OS Kubernetes client, `kubectl` by running:
 
@@ -162,7 +162,7 @@ The `dcos` and `kubectl` binaries will be downloaded to the current workdir.
 It's up to you to decided whether or not to copy or move them to another path,
 e.g. a path included in `PATH`.
 
-### Install
+## Install
 
 You are now ready to provision the DC/OS cluster and install the Kubernetes package:
 
@@ -204,7 +204,7 @@ You can access DC/OS Dashboard and check Kubernetes package tasks under Services
 make ui
 ```
 
-### Exposing the Kubernetes API
+## Exposing the Kubernetes API
 
 Check the [exposing Kubernetes API doc](/services/kubernetes/__VERSION__/exposing_kubernetes_api.md) to understand how
 the Kubernetes API gets exposed. To actually expose the Kubernetes API for the new Kubernetes cluster using Marathon-LB, run:
@@ -215,7 +215,7 @@ make marathon-lb
 
 **NOTE:** If you have changed the `num_of_public_agents` to more than `1` in your `.deploy/desired_cluster_profile`, please scale `marathon-lb` service to the same number so that you can access Kubernetes API from any DC/OS public agent.
 
-### Accessing the Kubernetes API
+## Accessing the Kubernetes API
 
 In order to access the Kubernetes API from outside the DC/OS cluster, one needs to configure `kubectl`, the Kubernetes CLI tool:
 
@@ -250,7 +250,7 @@ local-dns-dispatcher-kube-node-0-kubelet.devkubernetes01.mesos                1/
 metrics-server-594576c7d8-cb4pj                                               1/1     Running   0          3m35s
 ```
 
-### Accessing the Kubernetes Dashboard
+## Accessing the Kubernetes Dashboard
 
 You will be able to access the Kubernetes Dashboard by running:
 

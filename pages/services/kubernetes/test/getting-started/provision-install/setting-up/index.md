@@ -51,6 +51,14 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
     ```
 <!-- *** NEED some validation here. -->
 
+1. <strong>To verify that the cluster is connected, or if there was a change to `https`, setup the cluster again, making sure to insert the actual URL of your cluster:
+
+    ```bash
+    dcos cluster setup <cluster-url>
+    ```
+
+    Accept any permissions requests for your certificate.
+
 # Next Step: Installing the Mesosphere Kubernetes Engine
 
 Now that you have your DC/OS cluster all setup, you are ready to [install the Mesosphere Kubernetes Engine](/services/kubernetes/__VERSION__/getting-started/provision-install/installing-mke/).
