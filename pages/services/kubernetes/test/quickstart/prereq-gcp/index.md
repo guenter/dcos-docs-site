@@ -61,7 +61,7 @@ Later, you will be asked to add the SSH public key to the Terraform cluster prof
 
 ## Download the quickstart repository
 
-Now that you are all set up with your cloud, clone this repo:
+Now that you are all set up with your cloud, clone this repo and change into that directory:
 
 ```bash
 git clone git@github.com:mesosphere/dcos-kubernetes-quickstart.git && cd dcos-kubernetes-quickstart
