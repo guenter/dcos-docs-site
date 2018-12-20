@@ -2,22 +2,18 @@
 layout: layout.pug
 navigationTitle: Testing Connections
 title: Testing Connections and Viewing the Kubernetes Dashboard
-menuWeight: 10
+menuWeight: 9
 excerpt: Learn to test your connection to private Kubernetes clusters and view the Kubernetes dashboard.
 enterprise: true
 ---
 
-In this section, we will test our connections to our Kubernetes clusters one at a time and then lastly connect to the Kubernetes dashboard and view our Kubernetes clusters' information.
+In this section, we will test our connections to our Kubernetes clusters one at a time and then lastly connect to the Kubernetes dashboard and view our Kubernetes clusters' information. To test our connections we must ensure that the right ports are open, set our cluster's context with the DC/OS Kubernetes service, get Kubernetes nodes' information, and test with a simple NGINX deployment.
 
-## Connect to each Kubernetes cluster via NGINX web proxy
+## Check that Port `:6443` and `:6444` are open.
 
-To test our connections we must ensure that the right ports are open, set our cluster's context with the DC/OS Kubernetes service, get Kubernetes nodes' information, and test with a simple NGINX deployment.
+Before attempting to connect `kubectl` to the MKE clusters, you will want to check to ensure that ports `:6443` and `:6444` are accessible by your local machine to the DC/OS Cluster. Closed ports `:6443` and `:6444` will cause `kubectl` commands to just hang. Typically, these settings are handled by your systems administrator. Or, if using a cloud provider such as AWS, these would typically be rules configured in your **EC2-->Security Groups** tab. 
 
-### Check that Port `:6443` and `:6444` are open.
-
-Before attempting to connect `kubectl` to the MKE clusters, you will want to check to ensure that ports `:6443` and `:6444` are accessible by your local machine to the DC/OS Cluster. Closed ports `:6443` and `:6444` will cause `kubectl` commands to just hang. Moreover, if using a cloud provider such as AWS, these would typically be rules configured in your **EC2-->Security Groups** tab.
-
-### Test the connection to `kubernetes-cluster1` at port `:6443`
+## Test the connection to `kubernetes-cluster1` at port `:6443`
 
 1. <strong>First, configure your</strong> `context`<strong> to</strong> `kubernetes-cluster1` <strong>at port </strong>`:6443`<strong>.</strong>
 
@@ -43,6 +39,7 @@ Before attempting to connect `kubectl` to the MKE clusters, you will want to che
     to receive details regarding your the nodes of `kubernetes-cluster1`.
 
     <!-- better validation here of this step:OUTPUT ^^ -->
+    If you do not get an almost immediate response, check your firewall settings and ensure that you can communicate with your public agent node.
 
 
 1. <strong>Then, create a NGINX deployment on </strong>`kubernetes-cluster1`<strong>.</strong>
@@ -81,7 +78,7 @@ Before attempting to connect `kubectl` to the MKE clusters, you will want to che
 
     and the deployment will be deleted.
 
-### Test the connection to `kubernetes-cluster2` at port `:6444`
+## Test the connection to `kubernetes-cluster2` at port `:6444`
 
 Now you will do the same to test `kubernetes`
 
@@ -105,7 +102,7 @@ Now you will do the same to test `kubernetes`
     kubectl config use-context kubernetes-cluster2
     ```
 
-    Or use the flag `--context kubernetes-cluster1` in commands like:
+    Or use the flag `--context kubernetes-cluster1` in commands like so:
     
     ```bash
     kubectl get nodes --context kubernetes-cluster1
@@ -181,9 +178,9 @@ In one simple but satisfying validation of our connection into our Kubernetes cl
 
 1. <strong>Then, navigate to:</strong>  [http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/) and you should see your Kubernetes dashboard and information.
 
-**Note:** When accessed, and depending on whether you are running DC/OS or DC/OS EE (as well as on your browser's configuration) you may be presented a warning indicating that the TLS certificate being used by the Kubernetes Dashboard is not trusted. It is generally safe to permanently trust this TLS certificate by adding an exception in your browser. To learn more about TLS certificates, visit the [Kubernetes Dashboard](/services/kubernetes/__VERSION__/operations/kubernetes-dashboard/) section.
-
 When the Kubernetes login screen is shown, you should choose the **Kubeconfig** option, click the **Choose kubeconfig file** text box and pick the location of your kubeconfig file (typically, `$HOME/.kube/config`).
+
+**Note:** When accessed, and depending on whether you are running DC/OS or DC/OS EE (as well as on your browser's configuration) you may be presented a warning indicating that the TLS certificate being used by the Kubernetes Dashboard is not trusted. It is generally safe to permanently trust this TLS certificate by adding an exception in your browser, or to skip past it. To learn more about TLS certificates, visit the [Kubernetes Dashboard](/services/kubernetes/__VERSION__/operations/kubernetes-dashboard/) section.
 
     <!-- better validation here of this step:Screenshot ^^ -->
 

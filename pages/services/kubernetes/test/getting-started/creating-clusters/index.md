@@ -2,22 +2,16 @@
 layout: layout.pug
 navigationTitle: Creating Kubernetes clusters using MKE
 title: Creating Kubernetes clusters on DC/OS using MKE
-menuWeight: 10
+menuWeight: 5
 excerpt: Learn to create Kubernetes clusters on DC/OS using MKE and the DC/OS Kubernetes CLI.
 enterprise: true
 ---
 
-At this point, you should have [installed MKE](/services/kubernetes/__VERSION__/getting-started/provision-install/installing-mke/) - using the DC/OS `kubernetes` package on your DC/OS Enterprise cluster and installed the [latest DC/OS Kubernetes CLI](/services/kubernetes/__VERSION__/cli/).
+At this point, you should have [installed MKE](/services/kubernetes/__VERSION__/getting-started/installing-mke/) - using the DC/OS `kubernetes` package on your DC/OS Enterprise cluster and installed the [latest DC/OS Kubernetes CLI](/services/kubernetes/__VERSION__/cli/). As when installing the MKE, to run this Kubernetes cluster as a service on our DC/OS Enterprise cluster, we need a service account for it. Like before, to do so we need to first provision a service account for this Kubernetes cluster, then grant it the necessary permissions for operating on DC/OS Enterprise.
 
-Now you are in a position to create multiple Kubernetes clusters on top of DC/OS. Let's make a pair of them - one at a time.
+## Provision a Service Account for DC/OS Kubernetes
 
-## Create a Kubernetes cluster on DC/OS
-
-As when installing the MKE, to run this Kubernetes cluster as a service on our DC/OS Enterprise cluster, we need a service account for it. Like before, to do so we need to first provision a service account for this Kubernetes cluster, then grant it the necessary permissions for operating on DC/OS Enterprise.
-
-### Provision a Service Account for DC/OS Kubernetes
-
-As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Enterprise cluster, configuring a service account for DC/OS Kubernetes on Enterprise is necessary. Since the pattern is similar here, we will move through it just a little faster than when [provisioning the service account for MKE](/services/kubernetes/__VERSION__/getting-started/provision-install/installing-mke/) earlier.
+As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Enterprise cluster, configuring a service account for DC/OS Kubernetes on Enterprise is necessary. Since the pattern is similar here, we will move through it just a little faster than when [provisioning the service account for MKE](/services/kubernetes/__VERSION__/getting-started/installing-mke/) earlier.
 
 1. <strong>Start by creating a unique keypair to use for the service account, here we specify </strong>`kube1-priv.pem`<strong> and</strong> `kube1-pub.pem`<strong>:</strong>
 
@@ -43,9 +37,9 @@ As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Ent
 
     Again, it is expected behavior in these steps for no output from the CLI to happen unless an error has occurred.
 
-### Grant Permisions
+## Grant Permisions
 
-We provide code snippets here for ease of granting the necessary permissions. After all, you have already learned some of this pattern when [setting up the service account for MKE](/services/kubernetes/__VERSION__/getting-started/provision-install/installing-mke/) previously. The list of commands is certainly a fair bit more extensive here but the pattern is similar.
+We provide code snippets here for ease of granting the necessary permissions. After all, you have already learned some of this pattern when [setting up the service account for MKE](/services/kubernetes/__VERSION__/getting-started/installing-mke/) previously. The list of commands is certainly a fair bit more extensive here but the pattern is similar.
 
 #### Copy and Paste in Groups
 
@@ -90,7 +84,7 @@ If everything has gone right up until here, you should be able to paste these pe
 
     Again, as before, you should not receive any feedback in your CLI when these commands run successfully.
 
-### Create your first Kubernetes cluster
+## Create your first Kubernetes cluster
 
 Now that permissions have been granted to the service account, we need to make sure that the package installer is aware of the account.
 
@@ -178,9 +172,6 @@ It is a good practice to use of a different keypair to be used with the service 
     ```bash
     dcos security org users grant kubernetes-cluster2 dcos:secrets:default:/kubernetes-cluster2/* full
     dcos security org users grant kubernetes-cluster2 dcos:secrets:list:default:/kubernetes-cluster2 read
-    ```
-
-    ```bash
     dcos security org users grant kubernetes-cluster2 dcos:adminrouter:ops:ca:rw full
     dcos security org users grant kubernetes-cluster2 dcos:adminrouter:ops:ca:ro full
     ```
@@ -272,8 +263,8 @@ It is a good practice to use of a different keypair to be used with the service 
 
 <!-- *** NEED SCREENSHOT FOR VALIDATION HERE. -->
 
-# Next Step: Connecting to Kubernetes on DC/OS Enterprise
+## Next Step: Connecting to Kubernetes on DC/OS Enterprise
 
-Nice work! You now have multiple Kubernetes clusters running throughout your DC/OS Enterprise cluster. With the internal workings of the cluster all set, you can move on to [Connecting to Kubernetes](/services/kubernetes/__VERSION__/getting-started/connecting-to-kubernetes/) and view your Kubernetes dashboard via web proxy from outside the DC/OS Enterprise cluster.
+Nice work! You now have multiple Kubernetes clusters running throughout your DC/OS Enterprise cluster. With the internal workings of the cluster all set, you can move on to [Configuring Edge-LB](/services/kubernetes/__VERSION__/getting-started/config-edgelb-for-k8s/) to set up a load balancer for your cluster.
 
 <!-- *** note. -->

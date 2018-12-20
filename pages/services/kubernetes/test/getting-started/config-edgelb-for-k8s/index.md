@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configuring Edge-LB
 title: Configuring Edge-LB to Connect to Kubernetes
-menuWeight: 10
+menuWeight: 7
 excerpt: Learn to connect to Kubernetes of top of your DC/OS Enterprise cluster using DC/OS' Edge-LB load balancer.
 enterprise: true
 ---
@@ -23,6 +23,8 @@ To set up Edge-LB for DC/OS Kubernetes you will need to:
     dcos package repo add --index=0 edgelb https://downloads.mesosphere.com/edgelb/v1.2.3/assets/stub-universe-edgelb.json
     dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.2.3/assets/stub-universe-edgelb-pool.json
     ```
+
+    <p class="message--important"><strong>IMPORTANT: </strong>If you wish to download the repositories from the support site using your browser, you will need to be logged in with an enterprise customer service account.</p>
 
 1. <strong>Next, create an Edge-LB service account:</strong>
 
@@ -178,6 +180,6 @@ To set up Edge-LB for DC/OS Kubernetes you will need to:
 
 <!-- If the above commands do not work to find the public agent IP of the Edge-LB (maybe due to security reasons, etc.) we can determine the Public Agent IPs that we need by following the [Find Public Agent IP Guide here]() -->
 
-# Next Step: Test Kubernetes connections and view the Kubernetes dashboard
+## Next Step: Test Kubernetes connections and view the Kubernetes dashboard
 
-Now you have configured Edge-LB to connect to your Kubernetes clusters. In the next and last major step, you will [test connections and view the Kubernetes Dashboard](/services/kubernetes/__VERSION__/getting-started/connecting-to-kubernetes/test-connect/) via a web proxy on your browser.
+Now you have configured Edge-LB to connect to your Kubernetes clusters. In the last section, you will [test connections and view the Kubernetes Dashboard](/services/kubernetes/__VERSION__/getting-started/connecting-to-kubernetes/test-connect/) via a web proxy on your browser.
