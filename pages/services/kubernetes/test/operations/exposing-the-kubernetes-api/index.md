@@ -21,11 +21,11 @@ In the next sections we present two examples you can follow in order to expose t
 - [The first example](#example-1) provides a way for quickly trying out DC/OS Kubernetes without being concerned about establishing trust. This example also only covers exposing a single Kubernetes API.
 - [The second example](#example-2) is an extension of the first that builds a fully-secured setup exposing multiple instances of the Kubernetes API for multiple Kubernetes clusters.
 
-Alternately, if you are running Marathon-LB and/or Edge-LB in your DC/OS cluster, you may wish to expose the Kubernetes API for a given Kubernetes cluster via one of those. Details on how to do this are documented [here](/services/kubernetes/__VERSION__/exposing-the-kubernetes-api-marathonlb-edgelb).
+Alternately, if you are running Marathon-LB and/or Edge-LB in your DC/OS cluster, you may wish to expose the Kubernetes API for a given Kubernetes cluster via one of those. Details on how to do this are documented [here](/services/kubernetes/__VERSION__/operations/exposing-the-kubernetes-api-marathonlb-edgelb).
 
 In order for you to follow the examples successfully, your DC/OS cluster **MUST** have at least one [public agent](/1.12/overview/architecture/node-types/#public-agent-nodes) (that is, an agent that is on a network that allows ingress from outside the cluster). In the examples, `<ip-of-public-agent>` is the IP address you use to reach said public DC/OS agent. You  **MUST** also have SSH access to this DC/OS public agent. Having followed these examples, you will end up with a setup similar to the following:
 
-![Exposing the Kubernetes API using HAProxy](/services/kubernetes/__VERSION__/img/haproxy.png "Exposing the Kubernetes API using HAProxy")
+![Exposing the Kubernetes API using HAProxy](/services/kubernetes/__VERSION__/img/haproxy.png)
 
 Figure 1. Exposing the Kubernetes API using HAProxy
 
@@ -186,7 +186,7 @@ When HAProxy is deployed, you should see the following:
 ```shell
 $ dcos task
 NAME                HOST        USER    STATE  ID                                                       MESOS ID                                 REGION    ZONE
-(docs/package/__VERSION__.)
+(...)
 kubernetes-haproxy  10.138.0.7  root    R      kubernetes-haproxy.beaca041-5e7c-11e8-8c11-ce5fc4b24b83  cc965893-270f-4809-9617-e190904dae27-S0  us-west1  us-west1-b
 ```
 
@@ -250,11 +250,11 @@ The HAProxy configuration must also be updated accordingly:
 
 ```text
 backend backend_<SERVICE_NAME_1>
-    (docs/package/__VERSION__.)
+    (...)
     server kube-apiserver apiserver.<SERVICE_NAME_1>.l4lb.thisdcos.directory:6443 check ssl verify required ca-file /haproxy/<SERVICE_NAME_1>-ca.pem
 
 backend backend_<SERVICE_NAME_2>
-    (docs/package/__VERSION__.)
+    (...)
     server kube-apiserver apiserver.<SERVICE_NAME_2>.l4lb.thisdcos.directory:6443 check ssl verify required ca-file /haproxy/<SERVICE_NAME_2>-ca.pem
 ```
 
@@ -290,7 +290,7 @@ frontend frontend_all
     # /haproxy/devkubernetes01.pem contains the certificate and key for devkubernetes01.example.com
     # /haproxy/devkubernetes02.pem contains the certificate and key for devkubernetes02.example.com
     bind :6443 ssl crt /haproxy/devkubernetes01.pem crt /haproxy/devkubernetes02.pem
-    (docs/package/__VERSION__.)
+    (...)
 ```
 
 ### Step 3: Serving multiple Kubernetes API instances using HAProxy
@@ -300,7 +300,7 @@ To do this, update the `frontend` section of the HAProxy configuration according
 
 ```text
 frontend frontend_all
-    (docs/package/__VERSION__.)
+    (...)
     # Inspect the SNI field from incoming TLS connections so we can forward to
     # the appropriate backend based on the server name.
     use_backend backend_devkubernetes01 if { ssl_fc_sni devkubernetes01.example.com }

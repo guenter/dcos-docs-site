@@ -147,7 +147,7 @@ dcos kubernetes cluster debug pod replace <pod> --cluster-name <cluster-name>
 The DC/OS Kubernetes package goes to great lengths to ensure proper operation of the `etcd` cluster in the presence of failures.
 However, it is not possible to foresee and mitigate all possible situations, and in some cases manual intervention by the end-user may be required.
 For instance, if an `etcd` process that has been added to an existing cluster crashes before actually being able to establish a connection with the other members, the cluster may become unstable or, in some circumstances, inoperable.
-This document presents a number of best-practices that help reducing the chances of permanently losing an `etcd` cluster and the associated data. You should be familiar with the [Disaster Recovery](/services/kubernetes/__VERSION__/disaster-recovery) section before reading this document.
+This document presents a number of best-practices that help reducing the chances of permanently losing an `etcd` cluster and the associated data. You should be familiar with the [Disaster Recovery](/services/kubernetes/__VERSION__/operations/disaster-recovery/) section before reading this document.
 
 ## Failure Scenarios
 
@@ -174,7 +174,7 @@ To prevent this situation or be prepared in case it arises, you can take a numbe
 
 #### Perform a backup of the existing installation
 
-Before switching the value of `kubernetes.high_availability`, it is **STRONGLY ADVISED** to perform a backup of the current installation using the instructions in [Disaster Recovery](/services/kubernetes/__VERSION__/disaster-recovery).
+Before switching the value of `kubernetes.high_availability`, it is **STRONGLY ADVISED** to perform a backup of the current installation using the instructions in [Disaster Recovery](/services/kubernetes/__VERSION__/operations/disaster-recovery/).
 In the unlikely event of a failure in the `etcd` cluster while the scale-up operation is performed, uninstall DC/OS Kubernetes and use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` to restore the backup to a new cluster.
 After the restore, retry updating the value of `kubernetes.high_availability` from `false` to `true`.
 If this operation fails for the second or third time in a row, the DC/OS cluster may be unhealthy, and you are encouraged to contact technical support in order to further troubleshoot the problem.
@@ -217,7 +217,7 @@ The DC/OS Kubernetes cluster as a whole may experience some instability, and som
 There is usually no need for manual intervention in this scenario.
 
 When the DC/OS agent where `etcd-0-peer` was running permanently fails, and as mentioned in [Limitations](/services/kubernetes/__VERSION__/limitations/), the contents of the `etcd` data directory will be **PERMANENTLY LOST**.
-In order to restore data you will have to use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` as described in [Disaster Recovery](/services/kubernetes/__VERSION__/disaster-recovery).
+In order to restore data you will have to use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` as described in [Disaster Recovery](/services/kubernetes/__VERSION__/operations/disaster-recovery/).
 For this reason, it is **STRONGLY ADVISED** to periodically back up the DC/OS Kubernetes cluster(s) using `dcos kubernetes cluster backup --cluster-name=CLUSTER-NAME`, and to avoid running production workloads in a cluster where `kubernetes.high_availability` is set to `false`.
 
 ### Scenario 4
@@ -244,7 +244,7 @@ $ dcos kubernetes cluster debug --cluster-name=CLUSTER-NAME pod replace <pod-nam
 ```
 
 However, permanently losing two or more members will cause the `etcd` cluster to lose quorum and become inoperable.
-In this scenario you must use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` to re-create the DC/OS Kubernetes cluster from a previous backup, as described in [Disaster Recovery](/services/kubernetes/__VERSION__/disaster-recovery).
+In this scenario you must use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` to re-create the DC/OS Kubernetes cluster from a previous backup, as described in [Disaster Recovery](/services/kubernetes/__VERSION__/operations/disaster-recovery/).
 
 ## Further Reading
 
