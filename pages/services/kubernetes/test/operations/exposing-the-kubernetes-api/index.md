@@ -210,7 +210,7 @@ $ curl -k https://<ip-of-public-agent>:6443
 }
 ```
 
-To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["Without TLS verification"](/services/kubernetes/__VERSION__/connecting-clients#without-tls-verification) subsection of the [Connecting Clients](/services/kubernetes/__VERSION__/connecting-clients) page.
+To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["Without TLS verification"](/services/kubernetes/__VERSION__/operations/connecting-clients#without-tls-verification) subsection of the [Connecting Clients](/services/kubernetes/__VERSION__/operations/connecting-clients) page.
 
 <a name="example-2"></a>
 
@@ -313,4 +313,4 @@ For further information, refer to the [HAProxy documentation](https://cbonte.git
 
 ### Step 4: Configuring `kubectl`
 
-To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["With TLS verification"](/services/kubernetes/__VERSION__/connecting-clients#with-tls-verification) subsection of the [Connecting Clients](/services/kubernetes/__VERSION__/connecting-clients) page.
+To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["With TLS verification"](/services/kubernetes/__VERSION__/operations/connecting-clients#with-tls-verification) subsection of the [Connecting Clients](/services/kubernetes/__VERSION__/operations/connecting-clients/) page.

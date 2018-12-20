@@ -19,4 +19,4 @@ This will provide you with a thorough, but basic, Enterprise installation of DC/
 
 # First Step: Setting up your DC/OS Enterprise cluster for Kubernetes
 
-Next, you will [set up your DC/OS Enterprise cluster](/services/kubernetes/test/getting-started/provision-install/setting-up/). This will help ensure you experience a successful demonstration of operating Kubernetes on DC/OS Enterprise.
+Next, you will [set up your DC/OS Enterprise cluster](/services/kubernetes/__VERSION__/getting-started/provision-install/setting-up/). This will help ensure you experience a successful demonstration of operating Kubernetes on DC/OS Enterprise.

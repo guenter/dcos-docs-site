@@ -9,7 +9,7 @@ excerpt: Customizing your installation of Kubernetes on DC/OS
 The default DC/OS Kubernetes package installation provides reasonable defaults.
 However, there are many available options for advanced users to further modify the installation. This section describes those options.
 
-This section continues on from the instructions given in the [Basic Installation](/services/kubernetes/__VERSION__/getting-started/install-basic/) section.
+This section continues on from the instructions given in the [Basic Installation](/services/kubernetes/__VERSION__/getting-started/provision-install/) section.
 
 # Advanced Installation
 

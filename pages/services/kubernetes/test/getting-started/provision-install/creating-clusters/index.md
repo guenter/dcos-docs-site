@@ -198,7 +198,7 @@ It is a good practice to use of a different keypair to be used with the service 
 
 1. <strong>Next, create an options JSON file for this cluster named</strong> `kubernetes2-options.json`<strong>:</strong>
 
-    This options JSON provides an example of some of the configuration options available, listing some of the variable names and their default values. In this example, we will be deploying with `"kube_cpus": 1`, instead of the default value of `2`. 
+    This options JSON provides an example of some of the configuration options available, listing some of the variable names and their default values. In this example, we will be deploying with `"kube_cpus": 1`, instead of the default value of `2`.
 
     Use the following to create `kubernetes2-options.json`:
 

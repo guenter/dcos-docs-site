@@ -15,11 +15,11 @@ excerpt: Troubleshooting DC/OS Kubernetes
 If the scheduler task is not starting at all for your Kubernetes cluster, confirm that your DC/OS cluster contains enough resources to launch the cluster.
 If it appears that there are enough resources available, verify that there are no existing quotas for that installation. If there are, verify that it contains correct values.
 
-See the [Resources section](/services/kubernetes/__VERSION__/getting-started/install-basic/#resources) of the [Installing](/services/kubernetes/__VERSION__/getting-started/install-basic/) page for more detail on setting up your cluster.
+See the [Resources section](/services/kubernetes/__VERSION__/getting-started/provision-install/#resources) of the [Installing](/services/kubernetes/__VERSION__/getting-started/provision-install/) page for more detail on setting up your cluster.
 
 ## Scheduler is restarting
 
-If the scheduler task is starting for your Kubernetes cluster but is in a "Failed" restart loop, verify all of the installation [prerequisites](/services/kubernetes/__VERSION__/getting-started/install-basic/#prerequisites) have been met.
+If the scheduler task is starting for your Kubernetes cluster but is in a "Failed" restart loop, verify all of the installation [prerequisites](/services/kubernetes/__VERSION__/getting-started/provision-install/#prerequisites) have been met.
 This might include improperly configured Service Account and/or Service Account secret or other issues.
 
 The simplest way is to look at the Kubernetes cluster's scheduler logs for any error messages. Here are a few examples of what you might see.
@@ -164,7 +164,7 @@ The first scenario deals with failures that may happen when first installing DC/
 It is the least risky one as there is no pre-existing data stored in `etcd`, and hence there will be no data loss.
 
 In this scenario, the easiest way towards recovery is to uninstall and re-install DC/OS Kubernetes.
-Before re-installing DC/OS Kubernetes, make sure that all DC/OS agents are healthy, and that the DC/OS cluster itself is healthy and that there are no networking problems, and meets all the [prerequisites](/services/kubernetes/__VERSION__/getting-started/install-basic/#prerequisites).
+Before re-installing DC/OS Kubernetes, make sure that all DC/OS agents are healthy, and that the DC/OS cluster itself is healthy and that there are no networking problems, and meets all the [prerequisites](/services/kubernetes/__VERSION__/getting-started/provision-install/#prerequisites).
 
 ### Scenario 2
 

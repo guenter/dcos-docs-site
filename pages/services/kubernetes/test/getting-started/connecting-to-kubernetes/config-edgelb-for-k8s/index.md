@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Configuring Edge-LB
 title: Configuring Edge-LB to Connect to Kubernetes
 menuWeight: 10
-excerpt: Learn to install and configure Edge-LB on top of your DC/OS Enterprise cluster to enable connecting to your Kubernetes clusters.
+excerpt: Learn to connect to Kubernetes of top of your DC/OS Enterprise cluster using DC/OS' Edge-LB load balancer.
 enterprise: true
 ---
 

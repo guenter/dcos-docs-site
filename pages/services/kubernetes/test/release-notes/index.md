@@ -15,7 +15,7 @@ excerpt: Release notes for DC/OS Kubernetes version __VERSION__
 * DC/OS Kubernetes `__VERSION__` requires DC/OS 1.12.
 * DC/OS Kubernetes `__VERSION__` introduces breaking changes to the way the package works and is deployed.
   Therefore, it is not possible to upgrade an existing installation of DC/OS Kubernetes to `__VERSION__`.
-* Before installing `kubernetes-cluster` package `__VERSION__`, the `kubernetes` package must be [installed and running](/services/kubernetes/__VERSION__/install-and-customize).
+* Before installing `kubernetes-cluster` package `__VERSION__`, the `kubernetes` package must be [installed and running](/services/kubernetes/__VERSION__/operations/install-and-customize).
 * It is no longer possible to install DC/OS Kubernetes on DC/OS Enterprise without specifying a [service account](/1.12/security/ent/service-auth/) and a service account secret with adequate [permissions](/1.12/security/ent/perms-reference/).
 * Package options have been renamed and re-organized.
   * `node_placement` renamed to `private_node_placement`

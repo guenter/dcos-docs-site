@@ -165,7 +165,7 @@ Now you will do the same to test `kubernetes`
 
 ## Access the Kubernetes Dashboard from your browser
 
-In one simple but satisfying validation of our connection into our Kubernetes cluster manager from outside the cluster, we will access the Kubernetes Dashboard and view our clusters.
+In one simple but satisfying validation of our connection into our Kubernetes cluster manager from outside the cluster, we will access the Kubernetes Dashboard and view our cluster currently in context.
 
 1. <strong> Access the Kubernetes dashboard.</strong>
 
@@ -179,7 +179,11 @@ In one simple but satisfying validation of our connection into our Kubernetes cl
 
     <!-- better validation here of this step:OUTPUT ^^ -->
 
-1. <strong>Then, navigate to:</strong>  [http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/) and you should see your Kubernetes dashboard and both clusters' information.
+1. <strong>Then, navigate to:</strong>  [http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/) and you should see your Kubernetes dashboard and information.
+
+**Note:** When accessed, and depending on whether you are running DC/OS or DC/OS EE (as well as on your browser's configuration) you may be presented a warning indicating that the TLS certificate being used by the Kubernetes Dashboard is not trusted. It is generally safe to permanently trust this TLS certificate by adding an exception in your browser. To learn more about TLS certificates, visit the [Kubernetes Dashboard](/services/kubernetes/__VERSION__/operations/kubernetes-dashboard/) section.
+
+When the Kubernetes login screen is shown, you should choose the **Kubeconfig** option, click the **Choose kubeconfig file** text box and pick the location of your kubeconfig file (typically, `$HOME/.kube/config`).
 
     <!-- better validation here of this step:Screenshot ^^ -->
 
@@ -187,4 +191,4 @@ In one simple but satisfying validation of our connection into our Kubernetes cl
 
 Well done! You have successfully completed the [Getting Started Guide for Kubernetes](/services/kubernetes/__VERSION__/getting-started/). You have set up your DC/OS Enterprise cluster to be able to run Kubernetes as a service on DC/OS.
 
-For more information regarding operating Kubernetes as a service on DC/OS, check out the [Operating](/services/kubernetes/__VERSION__/operating/) section.
+For more information regarding operating Kubernetes as a service on DC/OS, check out the [Operations](/services/kubernetes/__VERSION__/operations/) section.
