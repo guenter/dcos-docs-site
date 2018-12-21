@@ -2,7 +2,7 @@
 layout: layout.pug
 excerpt: Guide for DC/OS on AWS using the Universal Installer
 title: DC/OS on AWS using the Universal Installer
-navigationTitle: AWS Terraform
+navigationTitle: AWS
 menuWeight: 0
 ---
 
@@ -205,7 +205,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     - 2 Private Agents
     - 1 Public Agent
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric characters, and be no longer than 24 characters. You can find additional input variables and their descriptions [here](/1.12/installing/cloud/aws/advanced).
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric characters, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/mesosphere-supported-methods/configuring-templates/).
   
     There are also simple helpers underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
@@ -269,7 +269,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
 # Logging in to DC/OS
 
-1. To login and start exploring your cluster, navigate to the `cluster-address` listed in the output of the CLI. From here you can choose your provider to create the superuser account.
+1. To login and start exploring your cluster, navigate to the `cluster-address` listed in the output of the CLI. From here you can choose your provider to create the superuser account [oss type="inline" size="small" /], or login with your specified Enterprise credentials [ent type="inline" size="small" /].
 
 <p align=center>
 <img src="./images/install/dcos-login.png"

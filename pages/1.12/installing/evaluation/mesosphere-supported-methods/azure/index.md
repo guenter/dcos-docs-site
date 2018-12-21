@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-title: DC/OS on Azure
-excerpt: Guide for installing DC/OS on Azure using the Mesosphere Universal Installer
-navigationTitle: Azure
+excerpt: Guide for DC/OS on Azure using the Mesosphere Universal Installer
+title: DC/OS on Azure using the Universal Installer
+navigationTitle: AzureRM
 menuWeight: 2
 ---
 

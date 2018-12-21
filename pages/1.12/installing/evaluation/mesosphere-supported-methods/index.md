@@ -13,5 +13,5 @@ These three cloud providers are officially supported and can be used to host you
 - [Azure](/1.12/installing/evaluation/mesosphere-supported-methods/azure/): Install DC/OS on Microsoft Azure by using the Mesosphere Universal Installer.
 - [Google Cloud Platform (GCP)](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/): Install DC/OS on Google Cloud Platform (GCP) by using the Mesosphere Universal Installer. 
 
-The [Production Installation](/1.12/installing/production/) is the method to install a fully functional cluster in on-premises environments.
+The [On-Prem Installation](/1.12/installing/production/) is the method to install a fully functional cluster in on-premises environments.
 
