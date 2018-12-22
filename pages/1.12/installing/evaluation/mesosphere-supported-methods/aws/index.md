@@ -6,14 +6,22 @@ navigationTitle: AWS
 menuWeight: 0
 ---
 
-To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Command Line Interface (AWS CLI) must be installed and configured to the security credentials of the AWS account you will be using for resources. The following instructions will guide you through the necessary account creation and credentials to be able to successfully configure your AWS CLI and install Terraform.
+To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Command Line Interface (AWS CLI) must be installed and configured to the security credentials of the AWS account you will be using for resources. The following instructions will guide you through the necessary account creation and credentials to be able to successfully configure your AWS CLI and install DC/OS.
 
 ## Prerequisites
+
 - Linux, macOS, or Windows
 - command-line shell terminal such as Bash or PowerShell
 - Python 2 version 2.6.5+ or Python 3 version 3.3+
 - verified Amazon Web Services (AWS) account and [AWS IAM](https://console.aws.amazon.com/iam/home) user profile with permissions
 
+# Install Terraform
+
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
+
+    ```bash
+    brew install terraform
+    ```
 
 # Install and configure the Amazon CLI
 
@@ -44,16 +52,6 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
     See [configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) for more information on setting up credentials and user profile.
 
-
-# Install Terraform
-
-1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
-
-    ```bash
-    brew install terraform
-    ```
-
-
 1. Set the `AWS_DEFAULT_REGION`. The current Terraform Provider for AWS requires that the default AWS region be set before terraform can start. You can set the default region with the following command:
 
     ```bash
@@ -68,7 +66,6 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     Ensure it has been set:
     ```bash
     echo $AWS_DEFAULT_REGION
-    us-west-2
     ```
 
 1. Set the `AWS_PROFILE`. Terraform will need to communicate your credentials to AWS. This should be the same profile associated with the access keys entered in when configuring the AWS CLI above.
@@ -78,7 +75,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     ```
 
     Ensure it has been set:
-    
+
     ```bash
     echo $AWS_PROFILE
     <your-AWS-profile>
@@ -94,7 +91,8 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     ssh-keygen -t rsa
     ```
 
-    The full process should 
+    The full process will look something like this:
+
     ```bash
     Generating public/private rsa key pair.
     Enter file in which to save the key (/Users/<your-username>/.ssh/id_rsa): ~/.ssh/aws-demo-key
@@ -118,12 +116,11 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     +-----------------+
     ```
 
-1. Add the key to your SSH agent. For example on macOS
+1. Add the key to your SSH agent. For example on macOS:
 
   ```bash
   ssh-add ~/.ssh/aws-demo-key
   ```
-
 
 # Creating a DC/OS Cluster
 
@@ -133,7 +130,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     mkdir dcos-aws-demo && cd dcos-aws-demo
     ```
 
-1. Create a file in that folder called `main.tf`, which is the configuration file the Mesosphere Universal Installer will call on each time when creating a plan. The name of this file should always be `main.tf`
+1. Create a file in that folder called `main.tf`, which is the configuration file the Mesosphere Universal Installer will call on each time when creating a plan. The name of this file should always be `main.tf`.
 
     ```bash
     touch main.tf
@@ -143,7 +140,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
     ```hcl
     module "dcos" {
-      source  = "dcos-terraform/dcos/<your-cloud-provider>"
+      source  = "dcos-terraform/dcos/aws"
       version = "~> 0.1"
 
       dcos_instance_os    = "coreos_1855.5.0"
@@ -187,27 +184,30 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     }
     ```
 
-1. Set your two main variables to complete the configuration, along with any others.
-
-    - `source = "dcos-terraform/dcos/<your-cloud-provider>"`: the options are: `gcp`, `aws`, or `azurerm`. For example, AWS users it would look like:
-      ```bash
-      source = "dcos-terraform/dcos/aws"
-      ```
+1. There is a main variable that must be set to complete the `main.tf`:
 
     - `ssh_public_key_file = "<path-to-public-key-file>"`: the path to the public key for your cluster, following our example it would be:
       ```bash
       "~/.ssh/aws-key.pub"
       ```
 
-    This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
+1. This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
 
     - 1 Master
     - 2 Private Agents
     - 1 Public Agent
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric characters, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/mesosphere-supported-methods/configuring-templates/).
+    Enterprise users, uncomment/comment the section on for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
+
+        ```bash
+        dcos_variant              = "ee"
+        dcos_license_key_contents = "${file("./license.txt")}"
+        # dcos_variant = "open"
+        ```
+
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/mesosphere-supported-methods/aws-advanced/).
   
-    There are also simple helpers underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
+    There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
     - `master-ips` A list of Your DC/OS master nodes
     - `cluster-address` The URL you use to access DC/OS UI after the cluster is setup.
@@ -215,13 +215,13 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
 1. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.
 
-1. Now the action of actually creating your cluster and installing DC/OS begins. First, initialize the project's local settings and data.  Always make sure you are still working in the `dcos-aws-demo` folder where you created your `main.tf` file.
+1. Now the action of actually creating your cluster and installing DC/OS begins. First, initialize the project's local settings and data.  Make sure you are still working in the `dcos-aws-demo` folder where you created your `main.tf` file, and run the initialization.
 
     ```bash
     terraform init
     ```
 
-    ```bash
+    ```text
     Terraform has been successfully initialized!
 
     You may now begin working with Terraform. Try running "terraform plan" to see
@@ -233,7 +233,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     commands will detect it and remind you to do so if necessary.
     ```
 
-    <p class="message--important"><strong>Important: </strong>If you have not properly set up your cloud provider credentials, terraform will not be able to interface with the service to provision and manage your infrastructure.</p>
+    <p class="message--note"><strong>Note: </strong>If terraform is not able to connect to your provider, ensure that you are logged in and are exporting your credentials. See the <a href="https://www.terraform.io/docs/providers/aws/index.html">AWS Provider</a> instructions for more information.</p>
 
 1. After Terraform has been initialized, the next step is to run the execution planner and save the plan to a static file - in this case, `plan.out`.
 
@@ -265,11 +265,11 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
   <img src="./images/install/terraform-apply.png" />
   </p>
 
-  And congratulations - you’re done! 
+  And congratulations - you’re up and running!
 
 # Logging in to DC/OS
 
-1. To login and start exploring your cluster, navigate to the `cluster-address` listed in the output of the CLI. From here you can choose your provider to create the superuser account [oss type="inline" size="small" /], or login with your specified Enterprise credentials [ent type="inline" size="small" /].
+1. To login and start exploring your cluster, navigate to the `cluster-address` listed in the output of the CLI. From here you can choose your provider to create the superuser account [oss type="inline" size="small" /], or login with your specified Enterprise credentials [enterprise type="inline" size="small" /].
 
 <p align=center>
 <img src="./images/install/dcos-login.png"
@@ -279,10 +279,6 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 <img src="./images/install/dcos-ui.png"
 </p>
 
-
 # Next steps:
 
-- Learning to use DC/OS and installing Services
-- Scaling your cluster
-- Upgrading or downgrading DC/OS
-- Configuring production grade DC/OS
+Now that you have DC/OS installed and have had a chance to take a look around, visit the [Cluster Operations](/1.12/installing/evaluation/mesosphere-supported/operations/) page to see how easy it is to make changes to your cluster. 
