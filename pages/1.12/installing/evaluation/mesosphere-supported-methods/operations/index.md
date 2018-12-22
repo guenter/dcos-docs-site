@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-excerpt: Working with your cluster using the Universal Installer
+excerpt: Working with your DC/OS cluster using the Universal Installer
 title: DC/OS Operations using the Universal Installer
-navigationTitle: Operations
+navigationTitle: Day 2 Operations
 menuWeight: 15
 ---
 
