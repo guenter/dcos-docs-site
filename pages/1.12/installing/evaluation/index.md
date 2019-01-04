@@ -16,7 +16,7 @@ excerpt: Guide to Installing DC/OS on cloud environments using the Mesosphere Un
 
 # About the Mesosphere Universal Installer
 
-A number of different installation methods have emerged to manage the life-cycle of DC/OS on a set of nodes in a cluster. These installation methods include AWS CloudFormation templates, Azure ARM templates, Ansible Playbooks, dcos-launch, dcos-gcp, and terraform-dcos. Each of these methods were designed to solve a particular use case, and therefore had some limitations around supporting the full life-cycle of (provision, deploy, install, upgrade, decommission) of DC/OS. For example, both AWS CloudFormation and Azure ARM template solutions do not support the upgrade process in DC/OS after the cluster is deployed the first time.
+A number of different installation methods have emerged to manage the life-cycle of DC/OS on a set of nodes in a cluster. These installation methods include AWS CloudFormation templates, Azure ARM templates, Ansible Playbooks, dcos-launch, dcos-gcp, and terraform-dcos. Each of these methods were designed to solve a particular use case, and therefore had some limitations around supporting the full life-cycle of (provision, deploy, install, upgrade, decommission) of DC/OS. For example, both AWS CloudFormation and Azure ARM template solutions do not support the upgrade process in DC/OS after the cluster is deployed the first time, whereas Ansible roles were infrastructure agnostic and did not cover the provisioning of machines itself.
 
 Terraform is an open source infrastructure automation tool which uses templates to manage infrastructure for multiple public cloud providers, service providers, and on-premises solutions. Terraform creates your infrastructure, configures resources, and manages communication between agents. The purpose of this tool is to automate most of the manual efforts of managing and maintaining distributed systems. The Universal Installer is built on top of Terraform.
 
@@ -44,7 +44,8 @@ These installation methods are used for fast demos and proofs of concept, as wel
 Any of the following methods can be used to install DC/OS:
 - [Amazon Web Services (AWS)](/1.12/installing/evaluation/mesosphere-supported-methods/aws/): Install DC/OS on AWS by using the Mesosphere Universal Installer.
 - [Azure](/1.12/installing/evaluation/mesosphere-supported-methods/azure/): Install DC/OS on Microsoft Azure by using the Mesosphere Universal Installer.
-- [Google Cloud Platform (GCP)](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/): Install DC/OS on Google Cloud Platform (GCP) by using the Mesosphere Universal Installer. 
+- [Google Cloud Platform (GCP)](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/): Install DC/OS on Google Cloud Platform (GCP) by using the Mesosphere Universal Installer.
+- [Any cloud](/1.12/installing/dcos-ansible/): Connect your Mesosphere Universal Installer created infrastructure to an existing Ansible setup and use Mesosphere provided Ansible roles to manage the DC/OS clusters lifecycle.
 
 ## Other Installation Methods 
 These installation methods are provided by the community and are not tested by Mesosphere. Upgrading DC/OS is not a supported feature when using the following installations.
