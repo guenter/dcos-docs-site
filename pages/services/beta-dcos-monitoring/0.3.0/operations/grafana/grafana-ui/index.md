@@ -15,7 +15,7 @@ model: /services/beta-dcos-monitoring/data.yml
 
 You should be able to access Grafana UI through Admin Router using "Services" routes by default (unless `grafana.admin_router_proxy` is set to `false`).
 
-Assume the service name is `{{ model.serviceeName }}` (default), you can access the Grafana UI using the following URL:
+Assume the service name is `{{ model.serviceName }}` (default), you can access the Grafana UI using the following URL:
 
 ```bash
 https://<CLUSTER_URL>/service/{{ model.serviceName }}/grafana/
